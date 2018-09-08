@@ -322,7 +322,7 @@ message ParamSpec {
 // NOTE
 // Update the next available ID when you add a new LayerParameter field.
 //
-// LayerParameter next available layer-specific ID: 149 (last added: clip_param)
+// LayerParameter next available layer-specific ID: 150 (last added: hashing_loss_param)
 message LayerParameter {
   optional string name = 1; // the layer name
   optional string type = 2; // the layer type
@@ -381,6 +381,7 @@ message LayerParameter {
   optional ClipParameter clip_param = 148;
   optional ConcatParameter concat_param = 104;
   optional ContrastiveLossParameter contrastive_loss_param = 105;
+  optional HashingLossParameter hashing_loss_param = 149;
   optional ConvolutionParameter convolution_param = 106;
   optional CropParameter crop_param = 144;
   optional DataParameter data_param = 107;
@@ -587,6 +588,13 @@ message ContrastiveLossParameter {
   // legacy_version = true uses (margin - d^2). This is kept to support /
   // reproduce existing models and results
   optional bool legacy_version = 2 [default = false];
+}
+
+message HashingLossParameter {
+  // margin for dissimilar pair
+  optional float bi_margin = 1 [default = 1.0];
+  // weighting parameter for the regularizer
+  optional float tradeoff = 2 [default = 0.01];
 }
 
 message ConvolutionParameter {
@@ -832,6 +840,8 @@ message ImageDataParameter {
   // data.
   optional bool mirror = 6 [default = false];
   optional string root_folder = 12 [default = ""];
+  optional uint32 label_num = 13 [default = 1];
+  optional uint32 cat_per_iter = 14 [default = 10];
 }
 
 message InfogainLossParameter {
