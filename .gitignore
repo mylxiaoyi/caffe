@@ -97,3 +97,6 @@ LOCK
 LOG*
 CURRENT
 MANIFEST-*
+
+deep_retrieval/datasets/*
+deep_retrieval/tmp/*
