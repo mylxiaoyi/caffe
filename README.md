@@ -1,5 +1,7 @@
 # Deep Retrieval
 
+[Original Repo](https://github.com/figitaki/deep-retrieval)
+
 This package contains the pretrained ResNet101 <del>model</del> and evaluation script for the method proposed in the following papers:
 
 * *Deep Image Retrieval: Learning global representations for image search.* A. Gordo, J. Almazan, J. Revaud, and D. Larlus. In ECCV, 2016
